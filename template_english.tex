@@ -1,0 +1,319 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Twenty Seconds Resume/CV
+% LaTeX Template
+% Version 1.1 (8/1/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Carmine Spagnuolo (cspagnuolo@unisa.it) with major modifications by
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+% ----------------------------------------------------------------------------------------
+
+\documentclass[letterpaper]{twentysecondcvenglish} % a4paper for A4
+\usepackage{hyperref}
+
+% Definitions of Pinyin
+\makeatletter
+\def\py@yunpriv#1{%
+  \if a#1 10\else
+  \if o#1 9\else
+  \if e#1 8\else
+  \if i#1 7\else
+  \if u#1 6\else
+  \if v#1 5\else
+  \if A#1 4\else
+  \if O#1 3\else
+  \if E#1 2\fi\fi\fi\fi\fi\fi\fi\fi\fi0
+}
+
+\def\py@init{%
+  \edef\py@befirst{}%
+  \edef\py@char{}\edef\py@tuneletter{}%
+  \def\py@last{}%
+  \def\py@tune{5}%
+}
+
+% Usage:
+% \pinyin{Hao3hao3\ xue2xi2} （好好学习）
+\def\pinyin#1{%
+  \edef\py@postscan{#1}%
+  \py@init
+  % scan
+  \loop
+  \edef\py@char{\expandafter\@car\py@postscan\@nil}%
+  \edef\py@postscan{\expandafter\@cdr\py@postscan\@nil}%
+  \ifnum 0 < 0\py@char
+    \edef\py@tune{\py@char}%
+    \py@first \py@tuneat\py@tuneletter\py@tune \py@last\kern -4sp\kern 4sp{}\py@init
+  \else
+    \ifnum\py@yunpriv\py@char > \py@yunpriv\py@tuneletter
+      \edef\py@tuneletter{\py@char}\edef\py@first{\py@befirst}\def\py@last{}%
+    \else
+      \edef\py@last{\py@last\if v\py@char\"u\else\py@char\fi}%
+    \fi
+    \edef\py@befirst{\py@befirst\if v\py@char\"u\else\py@char\fi}%
+  \fi
+  \ifx\py@postscan\@empty\else
+  \repeat
+}
+
+\let\py@macron \=
+\let\py@acute \'
+\let\py@hacek \v
+\let\py@grave \`
+
+%% \py@tuneat{Letter}{tune}
+\def\py@tuneat#1#2{%
+  \if v#1%
+    \py@tune@v #2%
+  \else
+  \if i#1%
+    \py@tune@i #2%
+  \else
+    \ifcase#2%
+      \or\py@macron #1\or\py@acute #1\or\py@hacek #1\or\py@grave #1\else #1%
+    \fi
+  \fi\fi
+}
+
+\def\py@tune@v#1{{%
+    \dimen@ii 1ex%
+    \fontdimen5\font 1.1ex%
+    \rlap{\"u}%
+    \fontdimen5\font .6ex%
+    \ifcase#1%
+      \or\py@macron u\or\py@acute u\or\py@hacek u\or\py@grave u\else u%
+    \fi
+    \fontdimen5\font\dimen@ii
+  }}
+
+\def\py@tune@i#1{%
+  \ifcase#1
+    \or\py@macron \i\or\py@acute \i\or\py@hacek \i\or\py@grave \i\else i%
+  \fi
+}
+\makeatletter
+% End of pinyin
+
+% ----------------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+% ----------------------------------------------------------------------------------------
+
+% If you don't need one or more of the below, just remove the content leaving the command, e.g. \cvnumberphone{}
+
+\profilepic{W1-2} % Profile picture
+\cvname{Pedro Gomes \\Branquinho} % Your name
+\cvjobtitle{Engineering Physicist} % Job title/career
+
+\cvdate{October, 07, 1997} % Date of birth
+\cvaddress{Franca, SP} % Short address/location, use \newline if more than 1 line is required
+\cvnumberphone{+55 16 99340-1215} % Phone number
+\cvsite{\href{www.buddhilw.com}{\color{violet!100!black}www.buddhilw.com}} % Personal website
+\cvmail{pedro.branquinho@usp.br} % Email address
+
+% ----------------------------------------------------------------------------------------
+
+\begin{document}
+
+% ----------------------------------------------------------------------------------------
+% ABOUT ME
+% ----------------------------------------------------------------------------------------
+
+\aboutme{I have interests in the areas of applied scientific
+  programming, a passion developed in my graduation. As a Operational
+  System, I use ArchLinux; also, I have experience with Debian
+  and Gentoo Linux. The Open Source movement has changed my
+  life, it has given me a lot of software to learn from. I heavily use it,
+  and participate in it's community. I'm a member of the ACM,
+  Association for Computing Machinery.}
+
+% To have no About Me section, just remove all the text and leave \aboutme{}
+
+% ----------------------------------------------------------------------------------------
+% SKILLS
+% ----------------------------------------------------------------------------------------
+
+% Skill bar section, each skill must have a value between 0 an 6 (float)
+\skills{{Emacs/5.7},{LaTeX/5.7},{Python/4.5},{Julia/4.0},{Clojure and
+    ClojureScript/3.0}, {R/3}, {Git/3}, {Docker/1.5}}
+
+% ------------------------------------------------
+
+% Skill text section, each skill must have a value between 0 an 6
+% \skillstext{{lovely/4},{narcissistic/3}}
+
+% ----------------------------------------------------------------------------------------
+
+\makeprofile % Print the sidebar
+
+% ----------------------------------------------------------------------------------------
+% INTERESTS
+% ----------------------------------------------------------------------------------------
+
+\section{Professional Interests}
+
+% \vspace{10mm}
+
+\begin{itemize}
+  % \item Automação de sistemas Linux, pipelines (System Administrator);
+  \item Linux Systems automation, pipelines (System Administrator);
+    % \item Modelagem matemática de sistemas dinâmicos;
+    % \item Aplicações de Webapps, com aprendizado de máquina;
+  \item Webapp Aplications using Machine Learning;
+    % \item Ciência de Dados - Recommender Systems;
+  \item Data Science - Recommender Systems;
+  \item Mathematical modeling of dynamic systems;
+\end{itemize}
+\vspace{0.2cm}
+% ----------------------------------------------------------------------------------------
+% EDUCATION
+% ----------------------------------------------------------------------------------------
+
+\section{Formal Education}
+
+\begin{twenty} % Environment for a list with descriptions
+  \twentyitem{2016 - 2021}{Graduation}{\normalsize{São Paulo University, USP}}{Engineering Physics}
+  % \twentyitem{<dates>}{<title>}{<location>}{<description>}
+\end{twenty}
+\vspace{0.2cm}
+% ----------------------------------------------------------------------------------------
+% PUBLICATIONS
+% ----------------------------------------------------------------------------------------
+
+\section{Eletronic Publications}
+
+\begin{twentyshort} % Environment for a short list with no
+  % descriptions
+  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/EEL_EstatMultiVarRN}{\color{blue!50!violet}Machine
+    Learning, with R - while coursing Statics II.}}
+  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT1}{\color{blue!50!violet}Introduction
+      to \LaTeX, P1.}}
+  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT2}{\color{blue!50!violet}
+      Essential Commands, P2.
+    }}
+  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT3}{\color{blue!50!violet}Bibliographical
+      References, Citations and Beamer Presentations, P3.}}
+  \twentyitemshort{2020}{\href{https://www.youtube.com/watch?v=spYCKElN-v0&list=PLweBgessvalf9eGUknfHQZ6_q2Nz7t8df}{\color{blue!50!violet}
+    A Minicourse on \LaTeX{}} - Material available on YouTube (Portuguese).}
+
+  % \twentyitemshort{<dates>}{<title/description>}
+\end{twentyshort}
+\vspace{0.2cm}
+% ----------------------------------------------------------------------------------------
+% AWARDS
+% ----------------------------------------------------------------------------------------
+
+% \section{Awards}
+
+% \begin{twentyshort} % Environment for a short list with no descriptions
+%   \twentyitemshort{1987}{All-Time Best Fantasy Novel.}
+%   \twentyitemshort{1998}{All-Time Best Fantasy Novel before 1990.}
+%   % \twentyitemshort{<dates>}{<title/description>}
+% \end{twentyshort}
+
+% ----------------------------------------------------------------------------------------
+% EXPERIENCE
+% ----------------------------------------------------------------------------------------
+
+\section{Experiencias Extracurriculares}
+
+\begin{twenty} % Environment for a list with descriptions
+  \twentyitem{2020}{\textit{Performance (Really) Matters}}{ACM}{Emery
+    Berger on the use of Scalene to perform software optimization.}
+  \twentyitem{2020}{\textit{International Congress on Funcional
+      Programming}}{Penn University}{I learned about the state of the
+    art on Programming Languages.}
+  \twentyitem{2020}{\textit{Introduction to Docker: Build Your Own Portfolio
+      Site}}{Coursera}{Learning how to \textit{deploy}; as a result, I
+    lauched \href{www.buddhilw.com}{\color{violet!80!black} my own website.}}
+  \twentyitem{2020}{\textit{Introduction to Git and
+      GitHub}}{Coursera}{Part of the specialization, \textit{Google IT Automation with Python}}
+  \twentyitem{2019}{\textit{Clojure for the Brave and True}}{Livro
+    Texto}{Introductory self-study of Clojure.}
+  \twentyitem{2018}{Arch Linux Install}{Linux Architecture}{I
+    learned how to install Linux and configure a hole functional
+    Desktop; used systemd, DWM as window manager and Emacs as my editor.}
+  \twentyitem{2017}{Emacs, SLIME, Common Lisp}{Open Source}{When I
+    started my interest on programming and Funcional Languages. I
+    followed the book ``ANSI Common Lisp'', \textit{Paul Graham}.}
+  \twentyitem{2017}{Ubuntu Linux}{Primeira Instalação}{My objective
+    was to use Emacs, which do not run smoothly on Windows.}
+  % \twentyitem{<dates>}{<title>}{<location>}{<description>}
+\end{twenty}
+
+% ----------------------------------------------------------------------------------------
+% OTHER INFORMATION
+% ----------------------------------------------------------------------------------------
+\vspace{0.2cm}
+\section{Languages and Fluency}
+
+\begin{description}
+\item[English:] I read, speak and write at ease.
+\item[Mandarin:] I read, speak and write at HSK2-3 level.
+\item[Latin:] I can read basic texts.
+% \item[Espanhol:] Leio bem, falo pouco, escrevo pouco.
+% \item[Francês:] Leio bem, falo pouco, escrevo pouco.
+
+  % (\pinyin{Pi1nyin1})
+% \item[Lojban:] Leio mediano, falo pouco, escrevo mediano.
+\end{description}
+
+\vspace{0.2cm}
+
+\section{Cultural Interests and Fun facts}
+
+\vspace{0.05mm}
+
+% \subsection{Filosofia}
+The most influential books for me were ``The Conquest of Happiness'', \textit{Bertrand Russell}; ``Discourse on the Origin and Basis of Inequality Among Men '',
+\textit{Jean Jacques Rousseau}.
+
+I have read almost throughout ``A Book of Set Theory'', \textit{Charles
+  Pinter}. And, ``The Qualitative Theory of Ordinary Differential
+Equations'', \textit{Fred Brauer, John A. Nohel}.
+
+% Pratico métodos de meditação Chan/Zen Budistas e Wim Hof Method. Sou
+% vegano. Acredito que bem-estar e performance estão intimamente
+% ligados.
+I practice Chan/Zen Buddhist meditation and the Wim Hof Method. I'm
+vegan. And, I hold the view that well being and performance are strongly interlinked.
+\end{document}
+
+% ----------------------------------------------------------------------------------------
+% SECOND PAGE EXAMPLE
+% ----------------------------------------------------------------------------------------
+
+% \newpage % Start a new page
+
+% \makeprofile % Print the sidebar
+
+% \section{Other information}
+
+% \subsection{Review}
+
+% Alice approaches Wonderland as an anthropologist, but maintains a strong sense of noblesse oblige that comes with her class status. She has confidence in her social position, education, and the Victorian virtue of good manners. Alice has a feeling of entitlement, particularly when comparing herself to Mabel, whom she declares has a ``poky little house," and no toys. Additionally, she flaunts her limited information base with anyone who will listen and becomes increasingly obsessed with the importance of good manners as she deals with the rude creatures of Wonderland. Alice maintains a superior attitude and behaves with solicitous indulgence toward those she believes are less privileged.
+
+% \section{Other information}
+
+% \subsection{Review}
+
+% Alice approaches Wonderland as an anthropologist, but maintains a strong sense of noblesse oblige that comes with her class status. She has confidence in her social position, education, and the Victorian virtue of good manners. Alice has a feeling of entitlement, particularly when comparing herself to Mabel, whom she declares has a ``poky little house," and no toys. Additionally, she flaunts her limited information base with anyone who will listen and becomes increasingly obsessed with the importance of good manners as she deals with the rude creatures of Wonderland. Alice maintains a superior attitude and behaves with solicitous indulgence toward those she believes are less privileged.
+
+% ----------------------------------------------------------------------------------------
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
