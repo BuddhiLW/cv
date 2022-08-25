@@ -19,7 +19,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 % ----------------------------------------------------------------------------------------
 
-\documentclass[letterpaper]{twentysecondcv} % a4paper for A4
+\documentclass[letterpaper]{../cls/twentysecondcv} % a4paper for A4
 \usepackage{hyperref}
 
 % Definitions of Pinyin
@@ -111,14 +111,15 @@
 
 % If you don't need one or more of the below, just remove the content leaving the command, e.g. \cvnumberphone{}
 
-\profilepic{W1-2} % Profile picture
+\profilepic{../img/W1-2} % Profile picture
+\virtcv{../img/virtcv}
 \cvname{Pedro Gomes \\Branquinho} % Your name
 \cvjobtitle{Engenheiro Físico} % Job title/career
-
 \cvdate{07 Outubro 1997} % Date of birth
-\cvaddress{Lorena, SP} % Short address/location, use \newline if more than 1 line is required
+\cvaddress{Franca, SP} % Short address/location, use \newline if more than 1 line is required
 \cvnumberphone{(16) 99340-1215} % Phone number
-\cvsite{\href{www.buddhilw.com}{\color{violet!80!black}www.buddhilw.com}} % Personal website
+\linkedin{\href{https://www.linkedin.com/in/pedro-g-branquinho/}{Perfil LinkedIn}} % Personal website
+\cvsite{\href{www.buddhilw.com}{www.buddhilw.com}} % Personal website
 \cvmail{pedro.branquinho@usp.br} % Email address
 
 % ----------------------------------------------------------------------------------------
@@ -129,25 +130,17 @@
 % ABOUT ME
 % ----------------------------------------------------------------------------------------
 
-\aboutme{Indentifico-me com as área de pro-
-  gramação científica aplicada, e aná- lise matemática de condições de
-  e- quilíbrio em modelos diferenciais. Sou adepto do uso do
-  (Arch)Linux, e o movimento \textit{Open Source}. Já tive diversas experiências empregatíceas na área de automação administrativa, utilizando-se uma diversidade de stacks.}
+\aboutme{Sou um Desenvolvedor de Software, com forte formação em exatas. Tenho conhecimento em ambos Front e Back- end, bem como conhecimento avançado de Estatística e Computação Científica.
+
+  Tenho experiência free-lance na Indústria, em empresas de pequeno e grande porte.
+}
 
 % To have no About Me section, just remove all the text and leave \aboutme{}
 
 % ----------------------------------------------------------------------------------------
 % SKILLS
 % ----------------------------------------------------------------------------------------
-
-% Skill bar section, each skill must have a value between 0 an 6 (float)
-\skills{{Emacs/5.7},{LaTeX/5.0}, {Bash/5.0}, {Python/4.5},{Julia/4.0},{Clojure e
-    ClojureScript/4.0}, {R/4}, {Git/4},{Elm/1}}
-
-% ------------------------------------------------
-
-% Skill text section, each skill must have a value between 0 an 6
-% \skillstext{{lovely/4},{narcissistic/3}}
+\skills{{Emacs/5.7}, {LaTeX/5.7},  {Python/5.5}, {Go/5},{Julia/4.5},{Git/4.5},{Clojure(Script)/4.5}, {Scripting (Bash, et al.)/4}, {JavaScript/3.5}}
 
 % ----------------------------------------------------------------------------------------
 
@@ -162,10 +155,10 @@
 % \vspace{10mm}
 
 \begin{itemize}
-\item Automação de sistemas Linux, pipelines (System Administrator);
-\item Modelagem matemática de sistemas dinâmicos;
-\item Aplicações de Webapps, com aprendizado de máquina;
-\item Ciência de Dados - Recommender Systems;
+  \item Data Science - Teste de Hipótese, Sistemas de Recomendação, PCA;
+  \item Aplicações Web, usando Machine Learning;
+  \item Automação de pipelines Linux/Unix;
+  \item Desenvolvimento Backend;
 \end{itemize}
 \vspace{0.2cm}
 % ----------------------------------------------------------------------------------------
@@ -175,7 +168,7 @@
 \section{Educação}
 
 \begin{twenty} % Environment for a list with descriptions
-  \twentyitem{2016 - 2022}{Graduação}{\normalsize{Universidade de São Paulo, USP}}{Engenharia Física}
+  \twentyitem{2016 - 2022}{Graduação (Completa)}{\normalsize{Universidade de São Paulo, USP}}{Engenharia Física}
   % \twentyitem{<dates>}{<title>}{<location>}{<description>}
 \end{twenty}
 \vspace{0.2cm}
@@ -187,19 +180,14 @@
 
 \begin{twentyshort} % Environment for a short list with no
   % descriptions
+  \twentyitemshort{2021}{\href{https://github.com/BuddhiLW/commons-csv-clj}{\color{blue!50!violet}
+    Indústria (Flow Finance) - Automação de Boletos}}
+  \twentyitemshort{2021}{\href{https://github.com/BuddhiLW/CloshBashika}{\color{blue!50!violet}
+    Industria (Lupo S.A.) - Automação de Relatórios Técnicos com Clojure/LaTeX.}}
   \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/EEL_EstatMultiVarRN}{\color{blue!50!violet}Machine
-    Learning, em R - Trabalho em Estatística II.}}
-  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT1}{\color{blue!50!violet}Introdução
-      ao LaTeX, P1.}}
-  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT2}{\color{blue!50!violet}
-      Explicação dos Comandos Essenciais, P2.
-    }}
-  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT3}{\color{blue!50!violet}Referências
-      cruzadas, Apresentações e Sumário de Comandos, P3.}}
+    Learning, com R - Enquanto cursava Estatística Multivareada.}}
   \twentyitemshort{2020}{\href{https://www.youtube.com/watch?v=spYCKElN-v0&list=PLweBgessvalf9eGUknfHQZ6_q2Nz7t8df}{\color{blue!50!violet}
-    Minicurso Sobre \LaTeX{}} - Aulas disponíveis no YouTube.}
-
-  % \twentyitemshort{<dates>}{<title/description>}
+    Um Minicurso em \LaTeX{}} - Disponível no YouTube.}
 \end{twentyshort}
 \vspace{0.2cm}
 % ----------------------------------------------------------------------------------------
@@ -221,30 +209,25 @@
 \section{Experiencias Extracurriculares}
 
 \begin{twenty} % Environment for a list with descriptions
-
-  \twentyitem{2021-2022}{\textit{USP}}{Estágio}{Pesquisa em modelos diferenciais de tráfego de carros}
-  \twentyitem{2021}{\textit{USP}}{Mentoria}{Mentoria de estatística multivariada}
-  \twentyitem{2021}{\textit{Lupo S.A.}}{Estágio}{Automação de relatórios}
-  \twentyitem{2021}{\textit{Flow Finance, SC}}{Estágio}{Automação de geração de boletos}
-  \twentyitem{2020}{\textit{Performance (Really) Matters}}{ACM}{Emery
-    Berger apresenta como utilizar Scalene para otimização.}
+  \twentyitem{2022}{\textit{Programming in Python}}{Meta}{Curso sobre Algorítmos e Estrtura de dados.}
+  \twentyitem{2022}{\textit{Version Control}}{Meta}{Curso em Git, Github e melhor práticas, em Versionamento.}
+  \twentyitem{2022}{\textit{Introduction to Back-End Development}}{Meta}{Curso de introdução às melhores práticas, TDD, Git e Metodologias Ágeis.}
+  \twentyitem{2022}{\textit{Google Go Specialization}}{University of California (UCI)}{Profissionalização em Go/Golang: Programação Orientada a Objetos (POO), Paralelismo, Concorrência e Design de Softwares.}
+  \twentyitem{2021}{\textit{Marco: 50 projetos pessoas e 26 colaborações (PR)}}{GitHub}{Meu atual
+    {\href{https://github.com/BuddhiLW/}{\color{blue!50!violet}status no GitHub}} (08/2021)}
+  % \twentyitem{2020}{\textit{Performance (Really) Matters}}{ACM}{Emery
+  %   Berger on the use of Scalene to perform software optimization.}
   \twentyitem{2020}{\textit{International Congress on Funcional
-      Programming}}{Penn University}{Participei de
-    três workshops, e aprendi sobre a fronteira da ciência em
-    Linguagens de Programação.}
-  % \twentyitem{2020}{\textit{Introduction to Docker: Build Your Own Portfolio
-  %     Site}}{Coursera}{Aprender a fazer \textit{deploy}; ao fim, lancei
-    % meu \href{www.buddhilw.com}{\color{violet!80!black}site!}}
-  \twentyitem{2020}{\textit{Introduction to Git and GitHub}}{Coursera}{Parte da
-    especialização \textit{Google IT Automation with Python}}
-  \twentyitem{2019}{\textit{Clojure for the Brave and True}}{Livro Texto}{Estudo introdutório a Clojure}
-  \twentyitem{2018}{Instalação do Arch Linux}{Arquitetura Linux}{Aprendi sobre como configurar,
-    formatar, e gerenciar computadores e redes remotas}
-  \twentyitem{2017}{Emacs, SLIME, Common Lisp}{Open Source}{Comecei a
-    utilizar linguagens funcionais, e me interessar por
-    computação. Segui o livro ``ANSI Common Lisp'', \textit{Paul Graham}.}
-  \twentyitem{2017}{Ubuntu Linux}{Primeira Instalação}{Objetivando
-    utilizar o Emacs; o Windows funcionava numa fração da velocidade desejável.}
+      Programming (ICFP))}}{Penn University}{Maior congresso em linguagens funcionais - exposição ao estado da arte da computação.}
+  \twentyitem{2020}{\textit{Introduction to Git and
+      GitHub}}{Google}{Parte da especialização, \textit{Google IT Automation with Python}}
+  \twentyitem{2019}{\textit{Clojure for the Brave and True}}{Livro Texto}{Início do auto-aprendizado de Clojure.}
+
+  \twentyitem{2018}{Instalação do Arch Linux}{Arquitetura Linux}{Aprendizado de como configurar um Desktop, do zero. Experiência com APIs, integrações e Third-Party-Software.}
+
+  \twentyitem{2017}{Emacs, SLIME, Common Lisp}{Open Source}{Quando comecei a estudar progamação, algoritmos funcionais e design de softwares.}
+
+  \twentyitem{2017}{Ubuntu Linux}{Primeira Instalação}{Primeira experiência com Linux, SystemD e Shell Scripting.}
   % \twentyitem{<dates>}{<title>}{<location>}{<description>}
 \end{twenty}
 
@@ -255,61 +238,34 @@
 \section{Línguas e Fluência}
 
 \begin{description}
-\item[Inglês:]Leio muito bem, falo bem, escrevo bem.
-% \item[Latim:] Leio bem, falo pouco, escrevo mediano.
-% \item[Espanhol:] Leio bem, falo pouco, escrevo pouco.
-% \item[Francês:] Leio bem, falo pouco, escrevo pouco.
-\item[Mandarim:] Leio mediano, falo mediano, escrevo mediano.
-  % (\pinyin{Pi1nyin1})
-% \item[Lojban:] Leio mediano, falo pouco, escrevo mediano.
+\item[Inglês:] \href{https://www.efset.org/cert/hqg62J}{Fluência a nível E2} (clique para abrir o certificado).
+\item[Mandarim:] HSK2.
 \end{description}
 
 \vspace{0.2cm}
 
-% \section{Interesses Culturais e Curiosidades}
-
-% \vspace{0.05mm}
-
-% % \subsection{Filosofia}
-% As obras mais influente na minha vida foram ``A
-% Conquista da Felicidade'', \textit{Bertrand Russell}; ``Discurso Sobre
-% a Origem e os Fundamentos da Desigualdade entre os Homens'',
-% \textit{Jean Jacques Rousseau}.
-
-% Já li grande parte do livro ``A Book of Set Theory'', \textit{Charles
-%   Pinter}. E, ``The Qualitative Theory of Ordinary Differential
-% Equations'', \textit{Fred Brauer, John A. Nohel}.
-
-% Pratico métodos de meditação Chan/Zen Budistas e Wim Hof Method. Sou
-% vegano. Acredito que bem-estar e performance estão intimamente
-% ligados.
-\end{document}
 
 % ----------------------------------------------------------------------------------------
 % SECOND PAGE EXAMPLE
 % ----------------------------------------------------------------------------------------
 
-% \newpage % Start a new page
+\newpage % Start a new page
 
-% \makeprofile % Print the sidebar
+\makeprofileNoExtra % Print the sidebar
 
-% \section{Other information}
-
-% \subsection{Review}
-
-% Alice approaches Wonderland as an anthropologist, but maintains a strong sense of noblesse oblige that comes with her class status. She has confidence in her social position, education, and the Victorian virtue of good manners. Alice has a feeling of entitlement, particularly when comparing herself to Mabel, whom she declares has a ``poky little house," and no toys. Additionally, she flaunts her limited information base with anyone who will listen and becomes increasingly obsessed with the importance of good manners as she deals with the rude creatures of Wonderland. Alice maintains a superior attitude and behaves with solicitous indulgence toward those she believes are less privileged.
-
-% \section{Other information}
-
-% \subsection{Review}
-
-% Alice approaches Wonderland as an anthropologist, but maintains a strong sense of noblesse oblige that comes with her class status. She has confidence in her social position, education, and the Victorian virtue of good manners. Alice has a feeling of entitlement, particularly when comparing herself to Mabel, whom she declares has a ``poky little house," and no toys. Additionally, she flaunts her limited information base with anyone who will listen and becomes increasingly obsessed with the importance of good manners as she deals with the rude creatures of Wonderland. Alice maintains a superior attitude and behaves with solicitous indulgence toward those she believes are less privileged.
-
-% ----------------------------------------------------------------------------------------
+\section{\LARGE{Certificados}}
+\subsection{\textbf{Google Go Specialization}}
 
 
 
+
+% -----------------------------------------------------------------------------
+
+
+
+\end{document}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
 %%% End:
+

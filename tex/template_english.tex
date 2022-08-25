@@ -19,7 +19,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 % ----------------------------------------------------------------------------------------
 
-\documentclass[letterpaper]{twentysecondcvenglish} % a4paper for A4
+\documentclass[letterpaper]{../cls/twentysecondcvenglish} % a4paper for A4
 \usepackage{hyperref}
 
 % Definitions of Pinyin
@@ -118,7 +118,9 @@
 \cvdate{October, 07, 1997} % Date of birth
 \cvaddress{Franca, São Paulo - Brazil} % Short address/location, use \newline if more than 1 line is required
 \cvnumberphone{+55 16 99340-1215} % Phone number
-\cvsite{\href{www.buddhilw.com}{\color{violet!60!black}www.buddhilw.com}} % Personal website
+\linkedin{\href{https://www.linkedin.com/in/pedro-g-branquinho/}{LinkedIn Profile}} % Personal website
+\cvsite{\href{www.buddhilw.com}{Personal Website}} % Personal website
+% \cvsite2{\href{www.buddhilw.com}{\color{violet!60!black}www.buddhilw.com}} % Personal website
 \cvmail{pedro.branquinho@usp.br} % Email address
 
 % ----------------------------------------------------------------------------------------
@@ -129,14 +131,9 @@
 % ABOUT ME
 % ----------------------------------------------------------------------------------------
 
-\aboutme{I have interests in the areas of applied scientific
-  programming, a passion of which I developed in my
-  graduation. Regarding science, I study the intersection of
-  Statistics and Differential Equations and numerical tools.
-  The Open Source movement has changed my life, in regard to the
-  relashionship to computers.
-  I heavily use the fruits of this enterprise, and I participate in the community. I'm
-  also a member of the ACM, Association for Computing Machinery.}
+\aboutme{I'm a Software Developer with strong background in STEM. I have know- ledge in both Front and Backend, as well as an advanced knowledge of Statistics and Scientific Computing.
+
+  I have worked in Industry automating billing and reports for big and small companies. Also, I have profitable solo projects with Crypto Trading Bots.}
 
 % To have no About Me section, just remove all the text and leave \aboutme{}
 
@@ -145,8 +142,7 @@
 % ----------------------------------------------------------------------------------------
 
 % Skill bar section, each skill must have a value between 0 an 6 (float)
-\skills{{Emacs/5.7},{LaTeX/5.7},{Python/4.5},{Julia/4.5},{Clojure and
-    ClojureScript/4.5}, {Scripting (Bash, et al.)/3}, {Git/3}, {R/2}}
+\skills{{Emacs/5.7}, {LaTeX/5.7}, {Python/5.5}, {Go/5},{Julia/4.5},{Git/4.5},{Clojure(Script)/4.5}, {Scripting (Bash, et al.)/4}, {JavaScript/3.5}}
 
 % ------------------------------------------------
 
@@ -167,10 +163,11 @@
 
 \begin{itemize}
   \item Data Science - Recommender Systems, Hypothesis testing, PCA;
-  \item Mathematical modeling of dynamic systems (ODEs/PDEs);
-  \item Operational Reaseach algorithms (OR-Tools);
   \item Webapp Applications using Machine Learning;
-  \item Linux Systems automation, pipelines (System Administrator);
+  \item Linux System's automation and pipelines;
+  \item Backend Development;
+  % \item Mathematical modeling of dynamic systems (ODEs/PDEs);
+  % \item Operational Reaseach algorithms (OR-Tools);
 \end{itemize}
 \vspace{0.2cm}
 % ----------------------------------------------------------------------------------------
@@ -180,7 +177,7 @@
 \section{Formal Education}
 
 \begin{twenty} % Environment for a list with descriptions
-  \twentyitem{2016 - 2021}{Graduation}{\normalsize{São Paulo University, USP}}{Engineering Physics}
+  \twentyitem{2016 - 2022}{Graduation (Completed)}{\normalsize{São Paulo University, USP}}{Engineering Physics}
   % \twentyitem{<dates>}{<title>}{<location>}{<description>}
 \end{twenty}
 \vspace{0.2cm}
@@ -198,13 +195,13 @@
     Industry (Lupo S.A.) - Automate technical reports with Clojure/LaTeX.}}
   \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/EEL_EstatMultiVarRN}{\color{blue!50!violet}Machine
     Learning, with R - while enrolled in Multivariate Statics.}}
-  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT1}{\color{blue!50!violet}Introduction
-      to \LaTeX, P1.}}
-  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT2}{\color{blue!50!violet}
-      Essential Commands in \LaTeX, P2.
-    }}
-  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT3}{\color{blue!50!violet}Bibliographical
-      References, Citations and Beamer Presentations, P3.}}
+  % \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT1}{\color{blue!50!violet}Introduction
+  %     to \LaTeX, P1.}}
+  % \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT2}{\color{blue!50!violet}
+  %     Essential Commands in \LaTeX, P2.
+  %   }}
+  % \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT3}{\color{blue!50!violet}Bibliographical
+  %     References, Citations and Beamer Presentations, P3.}}
   \twentyitemshort{2020}{\href{https://www.youtube.com/watch?v=spYCKElN-v0&list=PLweBgessvalf9eGUknfHQZ6_q2Nz7t8df}{\color{blue!50!violet}
     A Minicourse on \LaTeX{}} - Material available on YouTube (Portuguese).}
   % \twentyitemshort{<dates>}{<title/description>}
@@ -229,26 +226,29 @@
 \section{Extracurricular Experiences}
 
 \begin{twenty} % Environment for a list with descriptions
+  \twentyitem{2022}{\textit{Programming in Python}}{Meta}{Course on Algorithms and Datastructures using Python.}
+  \twentyitem{2022}{\textit{Version Control}}{Meta}{Course on Git, Github and Version Control practices.}
+  \twentyitem{2022}{\textit{Introduction to Back-End Development}}{Meta}{Course on how the Web Works, HTTP, REST, APIs, TDD and best practices.}
+  \twentyitem{2022}{\textit{Google Go Specialization}}{University of California (UCI)}{Three courses exploring Golang syntax, Object Orientation and Concurrency}
   \twentyitem{2021}{\textit{50 personal projects and collaborated in
       26.}}{GitHub}{My current
     {\href{https://github.com/BuddhiLW/}{\color{blue!50!violet}status
         on GitHub}} (08/2021)}
-  \twentyitem{2020}{\textit{Performance (Really) Matters}}{ACM}{Emery
-    Berger on the use of Scalene to perform software optimization.}
+  % \twentyitem{2020}{\textit{Performance (Really) Matters}}{ACM}{Emery
+  %   Berger on the use of Scalene to perform software optimization.}
   \twentyitem{2020}{\textit{International Congress on Funcional
       Programming}}{Penn University}{I learned about the state of the
     art on Programming Languages.}
   \twentyitem{2020}{\textit{Introduction to Git and
-      GitHub}}{Coursera}{Part of the specialization, \textit{Google IT Automation with Python}}
-  \twentyitem{2019}{\textit{Clojure for the Brave and True}}{Livro
-    Texto}{Introductory self-study of Clojure.}
+      GitHub}}{Google}{Part of the specialization, \textit{Google IT Automation with Python}}
+  \twentyitem{2019}{\textit{Clojure for the Brave and True}}{Text Book}{Introductory self-study of Clojure.}
   \twentyitem{2018}{Arch Linux Install}{Linux Architecture}{I
-    learned how to install Linux and configure a hole functional
+    learned how to install Linux from scratch and configure a hole functional
     Desktop; used systemd, DWM as window manager and Emacs as my editor.}
   \twentyitem{2017}{Emacs, SLIME, Common Lisp}{Open Source}{When I
     started my interest on programming and Funcional Languages. I
     followed the book ``ANSI Common Lisp'', \textit{Paul Graham}.}
-  \twentyitem{2017}{Ubuntu Linux}{Primeira Instalação}{My objective
+  \twentyitem{2017}{Ubuntu Linux}{First Install}{My objective
     was to use Emacs, which do not run smoothly on Windows.}
   % \twentyitem{<dates>}{<title>}{<location>}{<description>}
 \end{twenty}
@@ -273,18 +273,18 @@
 
 \vspace{0.2cm}
 
-\section{Cultural Interests}
+% \section{Cultural Interests}
 
-\vspace{0.05mm}
+% \vspace{0.05mm}
 
-% \subsection{Filosofia}
-The most influential books for me were ``Science and Sanity',
-\textit{Alfred Korzibsky}; ``The Conquest of Happiness'', \textit{Bertrand Russell}; ``Discourse on the Origin and Basis of Inequality Among Men '',
-\textit{Jean Jacques Rousseau}.
+% % \subsection{Filosofia}
+% The most influential books for me were ``Science and Sanity',
+% \textit{Alfred Korzibsky}; ``The Conquest of Happiness'', \textit{Bertrand Russell}; ``Discourse on the Origin and Basis of Inequality Among Men '',
+% \textit{Jean Jacques Rousseau}.
 
-I have read almost throughout ``A Book of Set Theory'', \textit{Charles
-  Pinter}. And, ``The Qualitative Theory of Ordinary Differential
-Equations'', \textit{Fred Brauer, John A. Nohel}.
+% I have read almost throughout ``A Book of Set Theory'', \textit{Charles
+%   Pinter}. And, ``The Qualitative Theory of Ordinary Differential
+% Equations'', \textit{Fred Brauer, John A. Nohel}.
 \end{document}
 
 % ----------------------------------------------------------------------------------------
