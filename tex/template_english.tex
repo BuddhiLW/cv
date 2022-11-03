@@ -111,7 +111,8 @@
 
 % If you don't need one or more of the below, just remove the content leaving the command, e.g. \cvnumberphone{}
 
-\profilepic{W1-2} % Profile picture
+\profilepic{../img/W1-2} % Profile picture
+\virtcv{../img/virtcv}
 \cvname{Pedro Gomes \\Branquinho} % Your name
 \cvjobtitle{Engineering Physicist} % Job title/career
 
@@ -142,8 +143,8 @@
 % ----------------------------------------------------------------------------------------
 
 % Skill bar section, each skill must have a value between 0 an 6 (float)
-\skills{{Emacs/5.7}, {LaTeX/5.7}, {Python/5.5}, {Go/5},{Julia/4.5},{Git/4.5},{Clojure(Script)/4.5}, {Scripting (Bash, et al.)/4}, {JavaScript/3.5}}
-
+\skills{{Linux/5.0},{Front-end/5.0},{Back-end/4.5},{Scripting/4.0}, {Data Science/4.0}, {DevOps/3.5}, {Theoretical Computer Science/3.0}}
+  % {Clojure(Script)/6}, {Emacs/5.7}, {LaTeX/5.7}, {Python-Julia-R/5.5}, {Go/5.5},{Git(Hub)/5.5}, {Scripting (Bash, et al.)/4}, {JavaScript/3.5}}
 % ------------------------------------------------
 
 % Skill text section, each skill must have a value between 0 an 6
@@ -162,14 +163,18 @@
 % \vspace{10mm}
 
 \begin{itemize}
-  \item Data Science - Recommender Systems, Hypothesis testing, PCA;
-  \item Webapp Applications using Machine Learning;
-  \item Linux System's automation and pipelines;
-  \item Backend Development;
+  \item Full-stack Development.
+  \item Microservices.
+  \item DevOps.
+  \item Data Science.
+  % \item Data Science - Recommender Systems, Hypothesis testing, PCA;
+  % \item Webapp Applications using Machine Learning;
+  % \item Linux System's automation and pipelines;
+  % \item Backend Development;
   % \item Mathematical modeling of dynamic systems (ODEs/PDEs);
   % \item Operational Reaseach algorithms (OR-Tools);
 \end{itemize}
-\vspace{0.2cm}
+\vspace{5mm}
 % ----------------------------------------------------------------------------------------
 % EDUCATION
 % ----------------------------------------------------------------------------------------
@@ -180,7 +185,7 @@
   \twentyitem{2016 - 2022}{Graduation (Completed)}{\normalsize{São Paulo University, USP}}{Engineering Physics}
   % \twentyitem{<dates>}{<title>}{<location>}{<description>}
 \end{twenty}
-\vspace{0.2cm}
+\vspace{5mm}
 % ----------------------------------------------------------------------------------------
 % PUBLICATIONS
 % ----------------------------------------------------------------------------------------
@@ -193,82 +198,35 @@
     Industry (Flow Finance) - Automate billing and Ledger history.}}
   \twentyitemshort{2021}{\href{https://github.com/BuddhiLW/CloshBashika}{\color{blue!50!violet}
     Industry (Lupo S.A.) - Automate technical reports with Clojure/LaTeX.}}
-  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/EEL_EstatMultiVarRN}{\color{blue!50!violet}Machine
-    Learning, with R - while enrolled in Multivariate Statics.}}
-  % \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT1}{\color{blue!50!violet}Introduction
-  %     to \LaTeX, P1.}}
-  % \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT2}{\color{blue!50!violet}
-  %     Essential Commands in \LaTeX, P2.
-  %   }}
-  % \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT3}{\color{blue!50!violet}Bibliographical
-  %     References, Citations and Beamer Presentations, P3.}}
-  \twentyitemshort{2020}{\href{https://www.youtube.com/watch?v=spYCKElN-v0&list=PLweBgessvalf9eGUknfHQZ6_q2Nz7t8df}{\color{blue!50!violet}
-    A Minicourse on \LaTeX{}} - Material available on YouTube (Portuguese).}
-  % \twentyitemshort{<dates>}{<title/description>}
 \end{twentyshort}
 \vspace{0.2cm}
 % ----------------------------------------------------------------------------------------
-% AWARDS
+% Industry Experience
 % ----------------------------------------------------------------------------------------
 
-% \section{Awards}
+\vspace{5mm}
+\section{Jobs -- Industry and Academia}
 
-% \begin{twentyshort} % Environment for a short list with no descriptions
-%   \twentyitemshort{1987}{All-Time Best Fantasy Novel.}
-%   \twentyitemshort{1998}{All-Time Best Fantasy Novel before 1990.}
-%   % \twentyitemshort{<dates>}{<title/description>}
-% \end{twentyshort}
-
-% ----------------------------------------------------------------------------------------
-% EXPERIENCE
-% ----------------------------------------------------------------------------------------
-
-\section{Extracurricular Experiences}
-
-\begin{twenty} % Environment for a list with descriptions
-  \twentyitem{2022}{\textit{Programming in Python}}{Meta}{Course on Algorithms and Datastructures using Python.}
-  \twentyitem{2022}{\textit{Version Control}}{Meta}{Course on Git, Github and Version Control practices.}
-  \twentyitem{2022}{\textit{Introduction to Back-End Development}}{Meta}{Course on how the Web Works, HTTP, REST, APIs, TDD and best practices.}
-  \twentyitem{2022}{\textit{Google Go Specialization}}{University of California (UCI)}{Three courses exploring Golang syntax, Object Orientation and Concurrency}
-  \twentyitem{2021}{\textit{50 personal projects and collaborated in
-      26.}}{GitHub}{My current
-    {\href{https://github.com/BuddhiLW/}{\color{blue!50!violet}status
-        on GitHub}} (08/2021)}
-  % \twentyitem{2020}{\textit{Performance (Really) Matters}}{ACM}{Emery
-  %   Berger on the use of Scalene to perform software optimization.}
-  \twentyitem{2020}{\textit{International Congress on Funcional
-      Programming}}{Penn University}{I learned about the state of the
-    art on Programming Languages.}
-  \twentyitem{2020}{\textit{Introduction to Git and
-      GitHub}}{Google}{Part of the specialization, \textit{Google IT Automation with Python}}
-  \twentyitem{2019}{\textit{Clojure for the Brave and True}}{Text Book}{Introductory self-study of Clojure.}
-  \twentyitem{2018}{Arch Linux Install}{Linux Architecture}{I
-    learned how to install Linux from scratch and configure a hole functional
-    Desktop; used systemd, DWM as window manager and Emacs as my editor.}
-  \twentyitem{2017}{Emacs, SLIME, Common Lisp}{Open Source}{When I
-    started my interest on programming and Funcional Languages. I
-    followed the book ``ANSI Common Lisp'', \textit{Paul Graham}.}
-  \twentyitem{2017}{Ubuntu Linux}{First Install}{My objective
-    was to use Emacs, which do not run smoothly on Windows.}
+\begin{twenty} % Environment for a short list with no descriptions
   % \twentyitem{<dates>}{<title>}{<location>}{<description>}
+  \twentyitem{2021}{Lupo S.A. -- Jan/2021-May/2021}{Developer}{Wrote software to automate Technical Reports, while working at WJB Engenharia (wjbsegurançadotrabalho.com.br/), as a Contractor firm to Lupo S.A.. We performed the Safety Analysis and Inventory of all the machinery from the company.}
+  \twentyitem{2021}{FlowFinance S.C.- Jun/2021-July/2021}{Developer}{I developed an application, single-handily, to perform the Ledger and Clarence of billing data coming from BIORC, in CSV format. The technology used was Clojure.}
+  \twentyitem{2021/2022}{University of São Paulo - Sep/2021-Mar/2022}{Researcher}{Modeling Traffic Flow, with Julia and Python - numerical solution to Partial Differential Equations (PDEs).Modeling Traffic Flow, with Julia and Python - numerical solution to Partial Differential Equations (PDEs).
+}
+\twentyitem{2021/2022}{Café do Bem (NPO) - Aug/2021-Current}{Volunteer}{I created the website \href{https://cafe-do-bem.company.site/}{https://cafe-do-bem.company.site/}, which is a platform to sell coffee. The mission of this Non-profit Organization is to revert all monetary gain, back to the coffee community (housing, food and basic education, as well as specialization courses).
+}
 \end{twenty}
 
+\vspace{5mm}
 % ----------------------------------------------------------------------------------------
-% OTHER INFORMATION
+% LANGUAGE
 % ----------------------------------------------------------------------------------------
-\vspace{0.2cm}
 \section{Languages and Fluency}
 
 \begin{description}
 \item[Portuguese:] Native.
-\item[English:] I read, speak and write at ease.
-\item[Mandarin:] I read, speak and write at HSK1-2 level.
-% \item[Latin:] I can read basic texts.
-% \item[Espanhol:] Leio bem, falo pouco, escrevo pouco.
-% \item[Francês:] Leio bem, falo pouco, escrevo pouco.
-
-  % (\pinyin{Pi1nyin1})
-% \item[Lojban:] Leio mediano, falo pouco, escrevo mediano.
+\item[Inglês:] \href{https://www.efset.org/cert/hqg62J}{C2 Level} (click to open certificate).
+\item[Mandarim:] HSK2.
 \end{description}
 
 \vspace{0.2cm}
@@ -284,32 +242,117 @@
 
 % I have read almost throughout ``A Book of Set Theory'', \textit{Charles
 %   Pinter}. And, ``The Qualitative Theory of Ordinary Differential
-% Equations'', \textit{Fred Brauer, John A. Nohel}.
-\end{document}
+%   Equations'', \textit{Fred Brauer, John A. Nohel}.
+
 
 % ----------------------------------------------------------------------------------------
 % SECOND PAGE EXAMPLE
 % ----------------------------------------------------------------------------------------
 
-% \newpage % Start a new page
+\newpage % Start a new page
 
-% \makeprofile % Print the sidebar
+\makeprofileNoExtra % Print the sidebar
 
-% \section{Other information}
+\section{\LARGE{Certificates}}
+\subsection{\textbf{Google Go Specialization by UCI - Irvine}}
+\begin{description}
+\item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Getting Started with Go:}] Basic syntax and Data Structure.
+\item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Functions, Methods and Interfaces:}] Object Orientation in Go.
+\item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Concurrency in Go:}] Advanced features in Go.
+\end{description}
+\vspace{10mm}
+\subsection{\textbf{Backend by Meta (former Facebook)}}
+\begin{description}
+\item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Introduction to Back-End Development:}] Agile, TDD etc.; the infrastructure of the web, HTTP, CTP and other Protocols..
+\item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Version Control:}] Practices with Git and Github.
+\item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Programming in Python:}] Syntax, and Object Orientation.
+\end{description}
 
-% \subsection{Review}
+\vspace{10mm}
+\subsection{\textbf{Responsive Web Design by freeCodeCamp}}
 
-% Alice approaches Wonderland as an anthropologist, but maintains a strong sense of noblesse oblige that comes with her class status. She has confidence in her social position, education, and the Victorian virtue of good manners. Alice has a feeling of entitlement, particularly when comparing herself to Mabel, whom she declares has a ``poky little house," and no toys. Additionally, she flaunts her limited information base with anyone who will listen and becomes increasingly obsessed with the importance of good manners as she deals with the rude creatures of Wonderland. Alice maintains a superior attitude and behaves with solicitous indulgence toward those she believes are less privileged.
+\begin{description}
+\item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Responsive Web Design:}] CSS syntax; Selectors; Bootstrap and other Frameworks.
+\end{description}
 
-% \section{Other information}
+\vspace{10mm}
+\subsection{\textbf{Introduction to Docker: Build Your Own Portfolio Site by Coursera}}
 
-% \subsection{Review}
+\begin{description}
+\item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Introduction to Docker: Build Your Own Portfolio Site:}] Launch a web-application using Docker; learn to download, upload and use containers.
+\end{description}
 
-% Alice approaches Wonderland as an anthropologist, but maintains a strong sense of noblesse oblige that comes with her class status. She has confidence in her social position, education, and the Victorian virtue of good manners. Alice has a feeling of entitlement, particularly when comparing herself to Mabel, whom she declares has a ``poky little house," and no toys. Additionally, she flaunts her limited information base with anyone who will listen and becomes increasingly obsessed with the importance of good manners as she deals with the rude creatures of Wonderland. Alice maintains a superior attitude and behaves with solicitous indulgence toward those she believes are less privileged.
+\vspace{10mm}
+\subsection{\textbf{English certification by EF Education First}}
 
-% ----------------------------------------------------------------------------------------
+\begin{description}
+\item[\href{https://buddhilw.github.io/bug-free-fiesta/}{EF SET Score - C2}] English test, based on European Standards - 78 points, giving the C2 score, at the maximum-range.
+\end{description}
 
 
+\vspace{5mm}
+\section{Aggregate-website, with Certifications}
+
+\vspace{1mm}
+
+\begin{center}
+  Link: \href{https://buddhilw.github.io/bug-free-fiesta/}{https://buddhilw.github.io/bug-free-fiesta/}
+\vspace{1mm}
+
+\includegraphics[width=\imagewidth]{../img/virtcerts.png}
+\end{center}
+\newpage
+\makeprofileNoExtra
+
+\section{Eletronic Publications}
+
+\begin{twentyshort} % Environment for a short list with no
+  % descriptions
+  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/EEL_EstatMultiVarRN}{\color{blue!50!violet}Machine
+    Learning, with R - while enrolled in Multivariate Statics.}}
+  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT1}{\color{blue!50!violet}Introduction
+      to \LaTeX, P1.}}
+  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT2}{\color{blue!50!violet}
+      Essential Commands in \LaTeX, P2.
+    }}
+  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT3}{\color{blue!50!violet}Bibliographical
+      References, Citations and Beamer Presentations, P3.}}
+  \twentyitemshort{2020}{\href{https://www.youtube.com/watch?v=spYCKElN-v0&list=PLweBgessvalf9eGUknfHQZ6_q2Nz7t8df}{\color{blue!50!violet}
+    A Minicourse on \LaTeX{}} - Material available on YouTube (Portuguese).}
+\end{twentyshort}
+
+\vspace{10mm}
+\section{Extracurricular Experiences - While at University}
+
+\begin{twenty} % Environment for a list with descriptions
+  % \twentyitem{<dates>}{<title>}{<location>}{<description>}
+  \twentyitem{2022}{\textit{Programming in Python}}{Meta}{Course on Algorithms and Datastructures using Python.}
+  \twentyitem{2022}{\textit{Version Control}}{Meta}{Course on Git, Github and Version Control practices.}
+  \twentyitem{2022}{\textit{Introduction to Back-End Development}}{Meta}{Course on how the Web Works, HTTP, REST, APIs, TDD and best practices.}
+  \twentyitem{2022}{\textit{Google Go Specialization}}{University of California (UCI)}{Three courses exploring Golang syntax, Object Orientation and Concurrency}
+  \twentyitem{2021}{\textit{50 personal projects and collaborated in
+      26.}}{GitHub}{My current
+    {\href{https://github.com/BuddhiLW/}{\color{blue!50!violet}status
+        on GitHub}} (08/2021)}
+  \twentyitem{2020}{\textit{Performance (Really) Matters}}{ACM}{Emery
+    Berger on the use of Scalene to perform software optimization.}
+  \twentyitem{2020}{\textit{International Congress on Funcional
+      Programming}}{Penn University}{I learned about the state of the
+    art on Programming Languages.}
+  \twentyitem{2020}{\textit{Introduction to Git and
+      GitHub}}{Google}{Part of the specialization, \textit{Google IT Automation with Python}}
+  \twentyitem{2019}{\textit{Clojure for the Brave and True}}{Text Book}{Introductory self-study of Clojure.}
+  \twentyitem{2018}{Arch Linux Install}{Linux Architecture}{I
+    learned how to install Linux from scratch and configure a hole functional
+    Desktop; used systemd, DWM as window manager and Emacs as my editor.}
+  \twentyitem{2017}{Emacs, SLIME, Common Lisp}{Open Source}{When I
+    started my interest on programming and Funcional Languages. I
+    followed the book ``ANSI Common Lisp'', \textit{Paul Graham}.}
+  \twentyitem{2017}{Ubuntu Linux}{First Install}{My objective
+    was to use Emacs, which do not run smoothly on Windows.}
+\end{twenty}
+
+\end{document}
 
 %%% Local Variables:
 %%% mode: latex

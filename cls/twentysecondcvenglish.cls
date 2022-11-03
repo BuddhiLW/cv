@@ -79,6 +79,7 @@
 \newcommand{\linkedin}[1]{\renewcommand{\linkedin}{#1}}
 \newcommand{\aboutme}[1]{\renewcommand{\aboutme}{#1}}
 \newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
+\newcommand{\virtcv}[1]{\renewcommand{\virtcv}{#1}}
 \newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
 \newcommand{\cvjobtitle}[1]{\renewcommand{\cvjobtitle}{#1}}
 
@@ -167,14 +168,66 @@
 		\profilesection{Skills}
 
 		\skills
-		\skillstext
-		\scriptsize
-		% [Escala, 0 (já utilizei) até 6 (Expert).]
+		% \skillstext
+		% \scriptsize
+	\end{textblock}
+}
+
+
+\newcommand{\makeprofileNoExtra}{
+	\begin{tikzpicture}[remember picture,overlay]
+   		\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
+	\end{tikzpicture}
+
+	%------------------------------------------------
+
+	\begin{textblock}{6}(0.5, 0.2)
 
 		%------------------------------------------------
 
+		\ifthenelse{\equal{\profilepic}{}}{}{
+			\begin{center}
+				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+					\clip (600/2, 567/2) circle (567/2);
+					\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{\profilepic}};
+				\end{tikzpicture}
+			\end{center}
+		}
+
+		%------------------------------------------------
+
+		{\Huge\color{mainblue}\cvname}
+
+		%------------------------------------------------
+
+		{\Large\color{black!80}\cvjobtitle}
+
+		%------------------------------------------------
+
+		\renewcommand{\arraystretch}{1.6}
+		\begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
+			\ifthenelse{\equal{\cvdate}{}}{}{\textsc{\Large\icon{\Info}} & \cvdate\\}
+			\ifthenelse{\equal{\cvaddress}{}}{}{\textsc{\Large\icon{\Letter}} & \cvaddress\\}
+			\ifthenelse{\equal{\cvnumberphone}{}}{}{\textsc{\Large\icon{\Telefon}} & \cvnumberphone\\}
+			\ifthenelse{\equal{\linkedin}{}}{}{\textsc{\Large\icon{\Mundus}} & \linkedin\\}
+			\ifthenelse{\equal{\cvsite}{}}{}{\textsc{\Large\icon{\Mundus}} & \cvsite\\}
+			\ifthenelse{\equal{\cvmail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\cvmail}{\cvmail}}
+		\end{tabular}
+
+		\profilesection{CV Virtual}
+		\ifthenelse{\equal{\virtcv}{}}{}{
+		  \begin{center}
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+			  % \clip (600/2, 567/2) ; %circle (567/2)
+			  \node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=1.25\imagewidth]{\virtcv}};
+			\end{tikzpicture}
+		  \end{center}
+		}
+		{\large{(Personal Presentation online)}}
+
 	\end{textblock}
 }
+
 
 %----------------------------------------------------------------------------------------
 %	 COLOURED SECTION TITLE BOX
