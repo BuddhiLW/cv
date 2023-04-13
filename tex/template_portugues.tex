@@ -26,248 +26,322 @@
 \makeatletter
 \def\py@yunpriv#1{%
   \if a#1 10\else
-  \if o#1 9\else
-  \if e#1 8\else
-  \if i#1 7\else
-  \if u#1 6\else
-  \if v#1 5\else
-  \if A#1 4\else
-  \if O#1 3\else
-  \if E#1 2\fi\fi\fi\fi\fi\fi\fi\fi\fi0
-}
+    \if o#1 9\else
+      \if e#1 8\else
+        \if i#1 7\else
+          \if u#1 6\else
+            \if v#1 5\else
+              \if A#1 4\else
+                \if O#1 3\else
+                  \if E#1 2\fi\fi\fi\fi\fi\fi\fi\fi\fi0
+  }
 
-\def\py@init{%
-  \edef\py@befirst{}%
-  \edef\py@char{}\edef\py@tuneletter{}%
-  \def\py@last{}%
-  \def\py@tune{5}%
-}
+  \def\py@init{%
+    \edef\py@befirst{}%
+    \edef\py@char{}\edef\py@tuneletter{}%
+    \def\py@last{}%
+    \def\py@tune{5}%
+  }
 
-% Usage:
-% \pinyin{Hao3hao3\ xue2xi2} （好好学习）
-\def\pinyin#1{%
-  \edef\py@postscan{#1}%
-  \py@init
-  % scan
-  \loop
-  \edef\py@char{\expandafter\@car\py@postscan\@nil}%
-  \edef\py@postscan{\expandafter\@cdr\py@postscan\@nil}%
-  \ifnum 0 < 0\py@char
-    \edef\py@tune{\py@char}%
-    \py@first \py@tuneat\py@tuneletter\py@tune \py@last\kern -4sp\kern 4sp{}\py@init
-  \else
-    \ifnum\py@yunpriv\py@char > \py@yunpriv\py@tuneletter
-      \edef\py@tuneletter{\py@char}\edef\py@first{\py@befirst}\def\py@last{}%
+  % Usage:
+  % \pinyin{Hao3hao3\ xue2xi2} （好好学习）
+  \def\pinyin#1{%
+    \edef\py@postscan{#1}%
+    \py@init
+    % scan
+    \loop
+    \edef\py@char{\expandafter\@car\py@postscan\@nil}%
+    \edef\py@postscan{\expandafter\@cdr\py@postscan\@nil}%
+    \ifnum 0 < 0\py@char
+      \edef\py@tune{\py@char}%
+      \py@first \py@tuneat\py@tuneletter\py@tune \py@last\kern -4sp\kern 4sp{}\py@init
     \else
-      \edef\py@last{\py@last\if v\py@char\"u\else\py@char\fi}%
+      \ifnum\py@yunpriv\py@char > \py@yunpriv\py@tuneletter
+        \edef\py@tuneletter{\py@char}\edef\py@first{\py@befirst}\def\py@last{}%
+      \else
+        \edef\py@last{\py@last\if v\py@char\"u\else\py@char\fi}%
+      \fi
+      \edef\py@befirst{\py@befirst\if v\py@char\"u\else\py@char\fi}%
     \fi
-    \edef\py@befirst{\py@befirst\if v\py@char\"u\else\py@char\fi}%
-  \fi
-  \ifx\py@postscan\@empty\else
-  \repeat
-}
+    \ifx\py@postscan\@empty\else
+      \repeat
+    }
 
-\let\py@macron \=
-\let\py@acute \'
-\let\py@hacek \v
-\let\py@grave \`
+    \let\py@macron \=
+    \let\py@acute \'
+    \let\py@hacek \v
+    \let\py@grave \`
 
-%% \py@tuneat{Letter}{tune}
-\def\py@tuneat#1#2{%
-  \if v#1%
-    \py@tune@v #2%
-  \else
-  \if i#1%
-    \py@tune@i #2%
-  \else
-    \ifcase#2%
-      \or\py@macron #1\or\py@acute #1\or\py@hacek #1\or\py@grave #1\else #1%
-    \fi
-  \fi\fi
-}
+    %% \py@tuneat{Letter}{tune}
+    \def\py@tuneat#1#2{%
+      \if v#1%
+        \py@tune@v #2%
+      \else
+        \if i#1%
+          \py@tune@i #2%
+        \else
+          \ifcase#2%
+          \or\py@macron #1\or\py@acute #1\or\py@hacek #1\or\py@grave #1\else #1%
+          \fi
+        \fi\fi
+    }
 
-\def\py@tune@v#1{{%
-    \dimen@ii 1ex%
-    \fontdimen5\font 1.1ex%
-    \rlap{\"u}%
-    \fontdimen5\font .6ex%
-    \ifcase#1%
-      \or\py@macron u\or\py@acute u\or\py@hacek u\or\py@grave u\else u%
-    \fi
-    \fontdimen5\font\dimen@ii
-  }}
+    \def\py@tune@v#1{{%
+        \dimen@ii 1ex%
+        \fontdimen5\font 1.1ex%
+        \rlap{\"u}%
+        \fontdimen5\font .6ex%
+        \ifcase#1%
+        \or\py@macron u\or\py@acute u\or\py@hacek u\or\py@grave u\else u%
+        \fi
+        \fontdimen5\font\dimen@ii
+      }}
 
-\def\py@tune@i#1{%
-  \ifcase#1
-    \or\py@macron \i\or\py@acute \i\or\py@hacek \i\or\py@grave \i\else i%
-  \fi
-}
-\makeatletter
-% End of pinyin
+    \def\py@tune@i#1{%
+      \ifcase#1
+      \or\py@macron \i\or\py@acute \i\or\py@hacek \i\or\py@grave \i\else i%
+      \fi
+    }
+    \makeatletter
+    % End of pinyin
 
-% ----------------------------------------------------------------------------------------
-% PERSONAL INFORMATION
-% ----------------------------------------------------------------------------------------
+    % ----------------------------------------------------------------------------------------
+    % PERSONAL INFORMATION
+    % ----------------------------------------------------------------------------------------
 
-% If you don't need one or more of the below, just remove the content leaving the command, e.g. \cvnumberphone{}
+    % If you don't need one or more of the below, just remove the content leaving the command, e.g. \cvnumberphone{}
 
-\profilepic{../img/W1-2} % Profile picture
-\virtcv{../img/virtcv}
-\cvname{Pedro Gomes \\Branquinho} % Your name
-\cvjobtitle{Engenheiro Físico} % Job title/career
-\cvdate{07 Outubro 1997} % Date of birth
-\cvaddress{Franca, SP} % Short address/location, use \newline if more than 1 line is required
-\cvnumberphone{(16) 99340-1215} % Phone number
-\linkedin{\href{https://www.linkedin.com/in/pedro-g-branquinho/}{Perfil LinkedIn}} % Personal website
-\cvsite{\href{www.buddhilw.com}{www.buddhilw.com}} % Personal website
-\cvmail{pedro.branquinho@usp.br} % Email address
+    \profilepic{../img/W1-2} % Profile picture
+    \virtcv{../img/virtcv}
+    \cvname{Pedro Gomes \\Branquinho} % Your name
+    \cvjobtitle{Engenheiro Físico} % Job title/career
+    \cvdate{07 Outubro 1997} % Date of birth
+    \cvaddress{Franca, SP} % Short address/location, use \newline if more than 1 line is required
+    \cvnumberphone{(16) 99340-1215} % Phone number
+    \linkedin{\href{https://www.linkedin.com/in/pedro-g-branquinho/}{Perfil LinkedIn}} % Personal website
+    \cvsite{\href{www.buddhilw.com}{www.buddhilw.com}} % Personal website
+    \cvmail{pedro.branquinho@usp.br} % Email address
 
-% ----------------------------------------------------------------------------------------
+    % ----------------------------------------------------------------------------------------
 
-\begin{document}
+    \begin{document}
 
-% ----------------------------------------------------------------------------------------
-% ABOUT ME
-% ----------------------------------------------------------------------------------------
+    % ----------------------------------------------------------------------------------------
+    % ABOUT ME
+    % ----------------------------------------------------------------------------------------
 
-\aboutme{Sou um Desenvolvedor de Software, com forte formação em exatas. Tenho conhecimento em ambos Front e Back- end, bem como conhecimento avançado de Estatística e Computação Científica.
+    \aboutme{Sou um Desenvolvedor de Software, com formação em Engenharia. Tenho conhecimento em ambos Front e Back- end, bem como conhecimento avançado de Estatística e Computação Científica.
 
-  Tenho experiência free-lance na Indústria, em empresas de pequeno e grande porte.
-}
+      Tenho experiência free-lance na Indústria, em empresas de pequeno e grande porte. Atualmente, trabalho com as tecnologias: Node.js, Express.js, e Linguagens de Domínio Específico (DSL) em JavaScript, na FACTI.
+    }
 
-% To have no About Me section, just remove all the text and leave \aboutme{}
+    % To have no About Me section, just remove all the text and leave \aboutme{}
 
-% ----------------------------------------------------------------------------------------
-% SKILLS
-% ----------------------------------------------------------------------------------------
-\skills{{Emacs/5.7}, {LaTeX/5.7},  {Python/5.5}, {Go/5},{Julia/4.5},{Git/4.5},{Clojure(Script)/4.5}, {Scripting (Bash, et al.)/4}, {JavaScript/3.5}}
+    % ----------------------------------------------------------------------------------------
+    % SKILLS
+    % ----------------------------------------------------------------------------------------
+    \skills{{Emacs/5.7}, {LaTeX/5.7}, {Python/5.5}, {Go/5},{Julia/4.5},{Git/4.5},{Clojure(Script)/4.5},
+      {Scripting (Bash, et al.)/4}, {JavaScript/4.5}}
 
-% ----------------------------------------------------------------------------------------
+    % ----------------------------------------------------------------------------------------
 
-\makeprofile % Print the sidebar
+    \makeprofile % Print the sidebar
 
-% ----------------------------------------------------------------------------------------
-% INTERESTS
-% ----------------------------------------------------------------------------------------
+    % ----------------------------------------------------------------------------------------
+    % INTERESTS
+    % ----------------------------------------------------------------------------------------
 
-\section{Interesses Profissionais}
+    \section{Interesses Profissionais}
 
-% \vspace{10mm}
+    % \vspace{10mm}
 
-\begin{itemize}
-  \item Data Science - Teste de Hipótese, Sistemas de Recomendação, PCA;
-  \item Aplicações Web, usando Machine Learning;
-  \item Automação de pipelines Linux/Unix;
-  \item Desenvolvimento Backend;
-\end{itemize}
-\vspace{0.2cm}
-% ----------------------------------------------------------------------------------------
-% EDUCATION
-% ----------------------------------------------------------------------------------------
+    \begin{itemize}
+      \item Full-stack Development.
+      \item Microservices.
+      \item DevOps.
+      \item Data Science.
+      % \item Data Science - Teste de Hipótese, Sistemas de Recomendação, PCA;
+      % \item Aplicações Web, usando Machine Learning;
+      % \item Automação de pipelines Linux/Unix;
+      % \item Desenvolvimento Backend;
+    \end{itemize}
+    \vspace{0.2cm}
+    % ----------------------------------------------------------------------------------------
+    % EDUCATION
+    % ----------------------------------------------------------------------------------------
 
-\section{Educação}
+    \section{Educação}
 
-\begin{twenty} % Environment for a list with descriptions
-  \twentyitem{2016 - 2022}{Graduação (Completa)}{\normalsize{Universidade de São Paulo, USP}}{Engenharia Física}
-  % \twentyitem{<dates>}{<title>}{<location>}{<description>}
-\end{twenty}
-\vspace{0.2cm}
-% ----------------------------------------------------------------------------------------
-% PUBLICATIONS
-% ----------------------------------------------------------------------------------------
+    \begin{twenty} % Environment for a list with descriptions
+      \twentyitem{2016 - 2022}{Graduação (Completa)}{\normalsize{Universidade de São Paulo, USP}}{Engenharia Física}
+      % \twentyitem{<dates>}{<title>}{<location>}{<description>}
+    \end{twenty}
+    \vspace{0.2cm}
+    % ----------------------------------------------------------------------------------------
+    % PUBLICATIONS
+    % ----------------------------------------------------------------------------------------
 
-\section{Publicações Eletônicas}
+    \section{Publicações Eletônicas}
 
-\begin{twentyshort} % Environment for a short list with no
-  % descriptions
-  \twentyitemshort{2021}{\href{https://github.com/BuddhiLW/commons-csv-clj}{\color{blue!50!violet}
-    Indústria (Flow Finance) - Automação de Boletos}}
-  \twentyitemshort{2021}{\href{https://github.com/BuddhiLW/CloshBashika}{\color{blue!50!violet}
-    Industria (Lupo S.A.) - Automação de Relatórios Técnicos com Clojure/LaTeX.}}
-  \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/EEL_EstatMultiVarRN}{\color{blue!50!violet}Machine
-    Learning, com R - Enquanto cursava Estatística Multivareada.}}
-  \twentyitemshort{2020}{\href{https://www.youtube.com/watch?v=spYCKElN-v0&list=PLweBgessvalf9eGUknfHQZ6_q2Nz7t8df}{\color{blue!50!violet}
-    Um Minicurso em \LaTeX{}} - Disponível no YouTube.}
-\end{twentyshort}
-\vspace{0.2cm}
-% ----------------------------------------------------------------------------------------
-% AWARDS
-% ----------------------------------------------------------------------------------------
+    \begin{twentyshort} % Environment for a short list with no
+      % descriptions
+      \twentyitemshort{2021}{\href{https://github.com/BuddhiLW/commons-csv-clj}{\color{blue!50!violet}
+          Indústria (Flow Finance) - Automação de Boletos}}
+      \twentyitemshort{2021}{\href{https://github.com/BuddhiLW/CloshBashika}{\color{blue!50!violet}
+          Industria (Lupo S.A.) - Automação de Relatórios Técnicos com Clojure/LaTeX.}}
+      % \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/EEL_EstatMultiVarRN}{\color{blue!50!violet}Machine
+      % Learning, com R - Enquanto cursava Estatística Multivareada.}}
+      % \twentyitemshort{2020}{\href{https://www.youtube.com/watch?v=spYCKElN-v0&list=PLweBgessvalf9eGUknfHQZ6_q2Nz7t8df}{\color{blue!50!violet}
+      % Um Minicurso em \LaTeX{}} - Disponível no YouTube.}
+    \end{twentyshort}
+    \vspace{0.2cm}
 
-% \section{Awards}
+    % ----------------------------------------------------------------------------------------
+    % Industry Experience
+    % ----------------------------------------------------------------------------------------
 
-% \begin{twentyshort} % Environment for a short list with no descriptions
-%   \twentyitemshort{1987}{All-Time Best Fantasy Novel.}
-%   \twentyitemshort{1998}{All-Time Best Fantasy Novel before 1990.}
-%   % \twentyitemshort{<dates>}{<title/description>}
-% \end{twentyshort}
+    \vspace{5mm}
+    \section{Jobs -- Industry and Academia}
 
+    \begin{twenty} % Environment for a short list with no descriptions
+      % \twentyitem{<dates>}{<title>}{<location>}{<description>}
+      \twentyitem{2021}{Lupo S.A. -- Jan/2021-Maio/2021}{Desenvolvedor}{
+        Escrevi um software para facilitar a escrita de relatórios técnicos, enquanto trabalhando na WJB Engenharia, com contrato com a Lupo S.A.. O trabalho foi feito, com Clojure.
+      }
+      \twentyitem{2021}{FlowFinance S.C.- Jun/2021-Julio/2021}{Developer}{
+        Escrevi uma aplicação para gerar uma lista de pagamentos, para lançamentos de boletos. A empresa prestava esse serviço para BIORC. O trabalho foi feito, com Clojure.
+      }
+      \twentyitem{2021/2022}{University of São Paulo - Sep/2021-Mar/2022}{Researcher}{
+        Pesquisei maneiras implementar soluções numéricas para modelos matemáticos de Tráfego de Carros (PDEs), com Julia e Python, usando I.A..
+      }
+      \twentyitem{2021/2022}{Café do Bem (NPO) - Agosto/2021-Atualmente}{Voluntariado}{Eu criei o site, \href{https://cafe-do-bem.company.site/}{https://cafe-do-bem.company.site/}, o qual é uma plataforma para venda de café. A ONG possui a missão de reverter os ganhos com populações de risco.
+      }
 
-% ----------------------------------------------------------------------------------------
-% OTHER INFORMATION
-% ----------------------------------------------------------------------------------------
-\vspace{0.2cm}
-\section{Línguas e Fluência}
+      \twentyitem{2023}{FACTI -- Jan/2023-Abril/2023}{FullStack Dev.}{
+        Experiência desenvolvendo aplicação com Vanilla JavaScript, Node.js, Express.js, ClojureScript e um framework criado para resolver o problema da empresa, usando uma Linguagem criada de Domínio Específico (\textit{DSL}).
+      }
+    \end{twenty}
 
-\begin{description}
-\item[Português:] Nativo.
-\item[Inglês:] \href{https://www.efset.org/cert/hqg62J}{Fluência a nível C2} (clique para abrir o certificado).
-\item[Mandarim:] HSK2.
-\end{description}
+    \vspace{5mm}
+    % ----------------------------------------------------------------------------------------
+    % LANGUAGE
+    % ----------------------------------------------------------------------------------------
+    \vspace{0.2cm}
+    \section{Línguas e Fluência}
 
-\vspace{0.2cm}
+    \begin{description}
+      \item[Português:] Nativo.
+      \item[Inglês:] \href{https://www.efset.org/cert/hqg62J}{Fluência a nível C2} (clique para abrir o certificado).
+      \item[Mandarim:] HSK2.
+    \end{description}
 
-
-% ----------------------------------------------------------------------------------------
-% SECOND PAGE EXAMPLE
-% ----------------------------------------------------------------------------------------
-
-\newpage % Start a new page
-
-\makeprofileNoExtra % Print the sidebar
-
-\section{\LARGE{Certificados}}
-\subsection{\textbf{Google Go Specialization}}
-
-
-% -----------------------------------------------------------------------------
-
-
-\newpage
-\makeprofileNoExtra
-% ----------------------------------------------------------------------------------------
-% EXPERIENCE
-% ----------------------------------------------------------------------------------------
-
-\section{Experiencias Extracurriculares - Enquanto Universitário}
-
-\begin{twenty} % Environment for a list with descriptions
-  \twentyitem{2022}{\textit{Programming in Python}}{Meta}{Curso sobre Algorítmos e Estrtura de dados.}
-  \twentyitem{2022}{\textit{Version Control}}{Meta}{Curso em Git, Github e melhor práticas, em Versionamento.}
-  \twentyitem{2022}{\textit{Introduction to Back-End Development}}{Meta}{Curso de introdução às melhores práticas, TDD, Git e Metodologias Ágeis.}
-  \twentyitem{2022}{\textit{Google Go Specialization}}{University of California (UCI)}{Profissionalização em Go/Golang: Programação Orientada a Objetos (POO), Paralelismo, Concorrência e Design de Softwares.}
-  \twentyitem{2021}{\textit{Marco: 50 projetos pessoas e 26 colaborações (PR)}}{GitHub}{Meu atual
-    {\href{https://github.com/BuddhiLW/}{\color{blue!50!violet}status no GitHub}} (08/2021)}
-  % \twentyitem{2020}{\textit{Performance (Really) Matters}}{ACM}{Emery
-  %   Berger on the use of Scalene to perform software optimization.}
-  \twentyitem{2020}{\textit{International Congress on Funcional
-      Programming (ICFP))}}{Penn University}{Maior congresso em linguagens funcionais - exposição ao estado da arte da computação.}
-  \twentyitem{2020}{\textit{Introduction to Git and
-      GitHub}}{Google}{Parte da especialização, \textit{Google IT Automation with Python}}
-  \twentyitem{2019}{\textit{Clojure for the Brave and True}}{Livro Texto}{Início do auto-aprendizado de Clojure.}
-
-  \twentyitem{2018}{Instalação do Arch Linux}{Arquitetura Linux}{Aprendizado de como configurar um Desktop, do zero. Experiência com APIs, integrações e Third-Party-Software.}
-
-  \twentyitem{2017}{Emacs, SLIME, Common Lisp}{Open Source}{Quando comecei a estudar progamação, algoritmos funcionais e design de softwares.}
-
-  \twentyitem{2017}{Ubuntu Linux}{Primeira Instalação}{Primeira experiência com Linux, SystemD e Shell Scripting.}
-  % \twentyitem{<dates>}{<title>}{<location>}{<description>}
-\end{twenty}
+    \vspace{0.2cm}
 
 
-\end{document}
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
+    % ----------------------------------------------------------------------------------------
+    % SECOND PAGE EXAMPLE
+    % ----------------------------------------------------------------------------------------
 
+    \newpage % Start a new page
+
+    \makeprofileNoExtra % Print the sidebar
+
+    \section{\LARGE{Certificados}}
+    \subsection{\textbf{Google Go Specialization}}
+    \begin{description}
+      \item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Getting Started with Go:}] Sintaxe da Língua e Estruturas de Dados.
+      \item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Functions, Methods and Interfaces:}] Orientação a Objeto, com Go.
+      \item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Concurrency in Go:}] Tópicos avançados em Go.
+    \end{description}
+    \vspace{10mm}
+    \subsection{\textbf{Backend by Meta (former Facebook)}}
+    \begin{description}
+      \item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Introduction to Back-End Development:}] Agile, TDD etc.; Infraestrutura da Web, HTTP, CTP e outros protocólogos.
+      \item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Version Control:}] Praticas com Git e Github.
+      \item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Programming in Python:}] Sintaxe e Orientação a Objetos.
+    \end{description}
+    \vspace{10mm}
+    \subsection{\textbf{Responsive Web Design by freeCodeCamp}}
+
+    \begin{description}
+      \item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Responsive Web Design:}] CSS; Bootstrap e outros Frameworks.
+    \end{description}
+
+    \vspace{10mm}
+    \subsection{\textbf{Introduction to Docker: Build Your Own Portfolio Site by Coursera}}
+
+    \begin{description}
+      \item[\href{https://buddhilw.github.io/bug-free-fiesta/}{Introduction to Docker: Build Your Own Portfolio Site:}] Projeto prático criando aplicações em containers e lançando um website, com Docker.
+    \end{description}
+
+    \vspace{10mm}
+    \subsection{\textbf{English certification by EF Education First}}
+
+    \begin{description}
+      \item[\href{https://buddhilw.github.io/bug-free-fiesta/}{EF SET Score - C2}] Teste de Inglês, com base no European Standards - 78 pontos, com nota C2, máximo intervalo.
+      % English test, based on European Standards - 78 points, giving the C2 score, at the maximum-range.
+    \end{description}
+    \vspace{5mm}
+    \section{Site agregador, com todas minhas Certificações}
+
+    \vspace{1mm}
+
+    \begin{center}
+      Link: \href{https://buddhilw.github.io/bug-free-fiesta/}{https://buddhilw.github.io/bug-free-fiesta/}
+      \vspace{1mm}
+
+      \includegraphics[width=\imagewidth]{../img/virtcerts.png}
+    \end{center}
+    \newpage
+    \makeprofileNoExtra
+
+    \section{Publicações Eletrónicas}
+
+    \begin{twentyshort} % Environment for a short list with no
+      % descriptions
+      \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/EEL_EstatMultiVarRN}{\color{blue!50!violet}Machine
+          Learning, with R - while enrolled in Multivariate Statics.}}
+      \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT1}{\color{blue!50!violet}Introduction
+          to \LaTeX, P1.}}
+      \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT2}{\color{blue!50!violet}
+          Essential Commands in \LaTeX, P2.
+        }}
+      \twentyitemshort{2020}{\href{https://github.com/BuddhiLW/MC-LaTeX/tree/master/LabEELw/LabEELw/MaterialMC/Livro_PT3}{\color{blue!50!violet}Bibliographical
+          References, Citations and Beamer Presentations, P3.}}
+      \twentyitemshort{2020}{\href{https://www.youtube.com/watch?v=spYCKElN-v0&list=PLweBgessvalf9eGUknfHQZ6_q2Nz7t8df}{\color{blue!50!violet}
+          A Minicourse on \LaTeX{}} - Material available on YouTube (Portuguese).}
+    \end{twentyshort}
+
+    % ----------------------------------------------------------------------------------------
+    % EXPERIENCE
+    % ----------------------------------------------------------------------------------------
+
+    \section{Experiencias Extracurriculares - Enquanto Universitário}
+
+    \begin{twenty} % Environment for a list with descriptions
+      \twentyitem{2022}{\textit{Programming in Python}}{Meta}{Curso sobre Algorítmos e Estrtura de dados.}
+      \twentyitem{2022}{\textit{Version Control}}{Meta}{Curso em Git, Github e melhor práticas, em Versionamento.}
+      \twentyitem{2022}{\textit{Introduction to Back-End Development}}{Meta}{Curso de introdução às melhores práticas, TDD, Git e Metodologias Ágeis.}
+      \twentyitem{2022}{\textit{Google Go Specialization}}{University of California (UCI)}{Profissionalização em Go/Golang: Programação Orientada a Objetos (POO), Paralelismo, Concorrência e Design de Softwares.}
+      \twentyitem{2021}{\textit{Marco: 50 projetos pessoas e 26 colaborações (PR)}}{GitHub}{Meu atual
+        {\href{https://github.com/BuddhiLW/}{\color{blue!50!violet}status no GitHub}} (08/2021)}
+      % \twentyitem{2020}{\textit{Performance (Really) Matters}}{ACM}{Emery
+      % Berger on the use of Scalene to perform software optimization.}
+      \twentyitem{2020}{\textit{International Congress on Funcional
+          Programming (ICFP))}}{Penn University}{Maior congresso em linguagens funcionais - exposição ao estado da arte da computação.}
+      \twentyitem{2020}{\textit{Introduction to Git and
+          GitHub}}{Google}{Parte da especialização, \textit{Google IT Automation with Python}}
+      \twentyitem{2019}{\textit{Clojure for the Brave and True}}{Livro Texto}{Início do auto-aprendizado de Clojure.}
+
+      \twentyitem{2018}{Instalação do Arch Linux}{Arquitetura Linux}{Aprendizado de como configurar um Desktop, do zero. Experiência com APIs, integrações e Third-Party-Software.}
+
+      \twentyitem{2017}{Emacs, SLIME, Common Lisp}{Open Source}{Quando comecei a estudar progamação, algoritmos funcionais e design de softwares.}
+
+      \twentyitem{2017}{Ubuntu Linux}{Primeira Instalação}{Primeira experiência com Linux, SystemD e Shell Scripting.}
+    \end{twenty}
+
+
+  \end{document}
+  %%% Local Variables:
+  %%% TeX-master: t
+  %%% End:
