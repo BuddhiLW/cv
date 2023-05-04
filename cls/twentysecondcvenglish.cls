@@ -20,7 +20,7 @@
 \RequirePackage{parskip}
 % ------------------------------------------------- %
 % ------------------------------------------------- %
-\RequirePackage[portuguese]{babel}
+% \RequirePackage[portuguese]{babel}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 
