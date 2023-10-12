@@ -6,4 +6,5 @@ tmp/
 *.out
 *.synctex.gz
 *.synctex.*
+*.aux
 .auctex-auto
